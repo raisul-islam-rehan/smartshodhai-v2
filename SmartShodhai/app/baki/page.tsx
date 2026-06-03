@@ -1,16 +1,8 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { MessageSquareText, Plus, Send, Wallet2, X } from "lucide-react";
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 import { supabase } from "@/lib/supabase";
 import { formatCurrencyBDT, formatNumberBD } from "@/lib/format";
 import {
@@ -18,6 +10,19 @@ import {
   sanitizeNotes,
 } from "@/lib/validation";
 import type { BakiRecord } from "@/types";
+
+const BakiAgingChart = dynamic(
+  () => import("@/components/baki-aging-chart").then((mod) => mod.BakiAgingChart),
+  {
+    ssr: false,
+    loading: () => (
+      <section className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
+        <div className="loading-skeleton mb-4 h-4 w-24" />
+        <div className="loading-skeleton h-64 w-full" />
+      </section>
+    ),
+  }
+);
 
 type ToastState = { type: "success" | "error"; message: string } | null;
 
@@ -427,20 +432,7 @@ export default function BakiPage() {
         </div>
       </section>
 
-      <section className="rounded-xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-        <h3 className="mb-4 text-sm font-semibold text-slate-700">Baki Aging</h3>
-        <div className="h-64">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={agingData}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
-              <XAxis dataKey="bucket" tickLine={false} axisLine={false} />
-              <YAxis allowDecimals={false} tickLine={false} axisLine={false} />
-              <Tooltip formatter={(value) => `${Number(value ?? 0)} customers`} />
-              <Bar dataKey="count" fill="#4f46e5" radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </section>
+      <BakiAgingChart data={agingData} />
 
       {isAddOpen && (
         <div
