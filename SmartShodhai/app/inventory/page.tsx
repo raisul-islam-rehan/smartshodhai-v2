@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { FileSearch, PackageSearch, Pencil, Plus, ScanLine, Trash2, Upload, X } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import {
@@ -1111,10 +1112,13 @@ export default function InventoryPage() {
               {ledgerPreview && (
                 <div className="rounded-xl border border-slate-200 bg-white p-3">
                   <p className="mb-2 text-sm font-medium text-slate-700">Image Preview</p>
-                  <img
+                  <Image
                     src={ledgerPreview}
                     alt="Ledger preview"
                     className="max-h-72 w-full rounded-lg object-contain"
+                    width={800}
+                    height={288}
+                    unoptimized
                   />
                 </div>
               )}

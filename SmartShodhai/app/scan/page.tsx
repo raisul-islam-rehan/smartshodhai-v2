@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import {
   CheckCircle2,
   FileSearch,
@@ -704,10 +705,13 @@ export default function ScanPage() {
             </div>
 
             {ledgerPreview && (
-              <img
+              <Image
                 src={ledgerPreview}
                 alt="Ledger preview"
                 className="max-h-72 w-full rounded-lg border border-slate-200 object-contain"
+                width={800}
+                height={288}
+                unoptimized
               />
             )}
 
