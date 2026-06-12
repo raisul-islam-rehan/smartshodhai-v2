@@ -117,7 +117,7 @@ This is v2, a full production rebuild of a v1 prototype built in Google AI Studi
 BBA, Business Analytics — AIUB, Dhaka
 AI Automation Agency — Solo Founder
 
-- Portfolio: [raycfu.com](https://raycfu.com)
+
 - GitHub: [@raisul-islam-rehan](https://github.com/raisul-islam-rehan)
 - Email: raisulrehan@gmail.com
 
