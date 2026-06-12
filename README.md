@@ -1,4 +1,4 @@
-# SmartShodhai — স্মার্ট সহাই
+# SmartShodhai — স্মার্ট সধাই
 
 **AI-powered inventory and distribution management for Bangladeshi FMCG distributors.**
 
