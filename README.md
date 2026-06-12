@@ -119,7 +119,7 @@ AI Automation Agency — Solo Founder
 
 - Portfolio: [raycfu.com](https://raycfu.com)
 - GitHub: [@raisul-islam-rehan](https://github.com/raisul-islam-rehan)
-- Email: raisulrehan2.0@gmail.com
+- Email: raisulrehan@gmail.com
 
 ---
 
